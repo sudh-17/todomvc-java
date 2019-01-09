@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class DBAccess {
 
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://10.10.1.17:3306/mysql?useUnicode=true&characterEncoding=utf8";
+	private static String url = "jdbc:mysql://10.10.1.17:3306/todo?useUnicode=true&characterEncoding=utf8";
 	private static String user = "root";
 	private static String password = "mysql123456";
 	static {

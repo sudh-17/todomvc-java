@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>servlet</servlet-name>
-  	<servlet-class>com.su.controller.TodoController</servlet-class>
+  	<servlet-class>com.su.servlet.Servlet</servlet-class>
   	<load-on-startup>1</load-on-startup><!-- 第一次加载时就创建 -->
   </servlet>
   <servlet-mapping>

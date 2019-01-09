@@ -1,16 +1,14 @@
 package com.su.dao;
 
 import static org.junit.Assert.*;
-
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.mysql.jdbc.PreparedStatement;
 
 public class DBAccessTest {
 
@@ -41,10 +39,30 @@ public class DBAccessTest {
 
 	@Test
 	public void testExecuteSQL() {
-		Connection conn=DBAccess.getConnection();
-        String sql="select * from pet";
-        java.sql.PreparedStatement stmt = conn.prepareStatement(sql);
-        ResultSet rs=  stmt.executeQuery();
+		Connection conn = null;
+		try {
+			conn = DBAccess.getConnection();
+			String sql="select * from todos";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			ResultSet rs=  stmt.executeQuery();
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String title = rs.getString("title");
+				String completed = rs.getString("completed");
+				System.out.println(id + "," +title +"," + completed);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
         
 	}
 
