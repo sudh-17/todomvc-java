@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSONObject;
 import com.su.bean.Todo;
 import com.su.dao.Model;
+import com.su.dao.impl.ModelImpl;
 import com.su.util.Mapping;
 
 public class Controller {
@@ -29,6 +30,7 @@ public class Controller {
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("text/json;charset=utf-8");
     	resp.setHeader("cache-control", "no-cache");
+    	//resp.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");//允许某个域名跨域访问
     	List<Todo> list = model.get();
     	out.print(JSONObject.toJSONString(list));
     	out.flush();

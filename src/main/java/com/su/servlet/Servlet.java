@@ -16,6 +16,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.su.bean.Todo;
 import com.su.controller.Controller;
 import com.su.dao.Model;
+import com.su.dao.impl.ModelImpl;
+import com.su.dao.impl.ModelList;
 import com.su.util.Mapping;
 
 
@@ -32,7 +34,7 @@ public class Servlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		model = new Model();
+		model = new ModelList();
 		controller = new Controller(model);
 	}
 
